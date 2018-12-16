@@ -1,0 +1,14 @@
+* Purpose
+~hex-game~ is a crate that implements the board game [[https://en.wikipedia.org/wiki/Hex_(board_game)][Hex]], in Rust.
+* Warning
+*Warning: This is still in development and is not ready for use yet.*
+* Features
+ - Reading and writing Hex games in the human-readable [[https://en.wikipedia.org/wiki/Smart_Game_Format][Smart Game Format]] (SGF) and additionally
+   reading and writing games to a more efficient binary format
+ - Playing Hex games using boards of any given size, including determining victory
+ - Visualizing Hex games and boards
+* Performance
+Performance is a central goal of this crate: it will be used to train a neural network to play Hex,
+and so at every point the goal is to make determining victory and playing moves as fast as possible.
+
+
