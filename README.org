@@ -10,5 +10,15 @@
 * Performance
 Performance is a central goal of this crate: it will be used to train a neural network to play Hex,
 and so at every point the goal is to make determining victory and playing moves as fast as possible.
+* License
+Licensed under either of
 
+ - [[http://www.apache.org/licenses/LICENSE-2.0][Apache License, Version 2.0]]
+ - [[http://opensource.org/licenses/MIT][MIT License]]
+
+at your option.
+* Contribution
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
+dual licensed as above, without any additional terms or conditions.
 
