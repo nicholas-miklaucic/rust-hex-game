@@ -1,3 +1,5 @@
+pub mod coord;
+
 #[cfg(test)]
 mod tests {
     #[test]
