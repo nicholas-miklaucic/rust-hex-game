@@ -22,9 +22,9 @@ static ALPHABET: &str = "abcdefghjiklmnopqrstuvwxyz";
 /// reasons.
 pub struct Coord {
     /// The x-axis, starting from the left column at 0.
-    x: u8,
+    pub x: u8,
     /// The y-axis, starting from the top row at 0.
-    y: u8,
+    pub y: u8,
 }
 
 impl Add<Coord> for Coord {

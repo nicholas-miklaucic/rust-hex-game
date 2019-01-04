@@ -1,4 +1,7 @@
+extern crate disjoint_sets;
+
 pub mod coord;
+pub mod board;
 
 #[cfg(test)]
 mod tests {
