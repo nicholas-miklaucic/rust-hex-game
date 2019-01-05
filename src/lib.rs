@@ -1,4 +1,4 @@
-extern crate disjoint_sets;
+extern crate petgraph;
 
 pub mod coord;
 pub mod board;

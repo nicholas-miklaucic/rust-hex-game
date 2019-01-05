@@ -18,11 +18,10 @@ Licensed under either of
 
 at your option.
 * Plan
- - [ ] Disjoint-set structure for ~Board~
+ - [X] Disjoint-set structure for ~Board~
  - [ ] Basic ~Game~ struct
  - [ ] Serialization and deserialization to/from SGF
  - [ ] Binary format serialization and deserialization
- - [ ] Make board enums strings
 * Contribution
 Unless you explicitly state otherwise, any contribution intentionally submitted
 for inclusion in the work by you, as defined in the Apache-2.0 license, shall be

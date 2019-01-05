@@ -8,7 +8,7 @@
 use std::collections::HashSet;
 use std::fmt;
 
-use disjoint_sets::UnionFind;
+use petgraph::unionfind::UnionFind;
 
 use crate::coord::Coord;
 
@@ -216,13 +216,13 @@ impl Board {
     fn set_game_status(&mut self) -> GameStatus {
         // if the squares one below the top left and right corners are equivalent, black has won,
         // because the left and right are connected
-        if self.black_unions.equiv(self.size + 3, (self.size + 2) * 2 - 1) {
+        if self.black_unions.find(self.size + 3) == self.black_unions.find((self.size + 2) * 2 - 1) {
             self.status = GameStatus::BlackWin;
             GameStatus::BlackWin        
         }
         // if the squares one to the right of the top and bottom left corners are connected, white
         // has won because the top and bottom are connected
-        else if self.white_unions.equiv(1, (self.size + 2) * (self.size + 1) + 1) {
+        else if self.white_unions.find(1) == self.white_unions.find((self.size + 2) * (self.size + 1) + 1) {
             self.status = GameStatus::WhiteWin;
             GameStatus::WhiteWin
         } else {
