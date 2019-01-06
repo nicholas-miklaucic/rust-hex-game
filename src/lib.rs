@@ -1,7 +1,9 @@
+extern crate colored;
 extern crate petgraph;
 
 pub mod coord;
 pub mod board;
+pub mod game;
 
 #[cfg(test)]
 mod tests {

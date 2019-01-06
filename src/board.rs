@@ -231,6 +231,11 @@ impl Board {
             GameStatus::Ongoing
         }            
     }
+    /// Returns the current game status. This is updated automatically as the game progresses, so this
+    /// function has basically no runtime cost.
+    pub fn status(&self) -> GameStatus {
+        self.status
+    }
 }
     
 impl fmt::Display for Board {

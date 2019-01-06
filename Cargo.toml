@@ -7,3 +7,4 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 petgraph = "0.4.13"
+colored = "1.7"
