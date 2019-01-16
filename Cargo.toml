@@ -6,6 +6,7 @@ edition = "2018"
 license = "MIT OR Apache-2.0"
 readme = "README.md"
 categories = ["games", "data-structures"]
+description = "An implementation of Hex for Rust"
 
 [dependencies]
 petgraph = "0.4.13"
