@@ -69,7 +69,7 @@ impl fmt::Display for Game {
             // separate with two newlines and the right number of spaces
             output_string.push('\n');
             output_string.push('\n');
-            for _ in 0..y+1 {
+            for _ in 0..=y {
                 output_string.push(' ');
                 output_string.push(' ');
             }
@@ -90,7 +90,7 @@ impl Game {
     pub fn new(size: u8) -> Game {
         Game {
             board_size: size,
-            board: Board::new(size as u16),
+            board: Board::new(u16::from(size)),
             moves: vec![]
         }
     }
@@ -121,7 +121,7 @@ impl Game {
             // move is invalid, do nothing and return false
             false
         }
-    }
+    }    
 }
 
 #[cfg(test)]

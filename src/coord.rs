@@ -89,10 +89,7 @@ impl FromStr for Coord {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let s_lower = s.to_lowercase();
-        if s_lower.len() < 2 {
-            Err(ParseCoordError::InvalidFormat)
-        }
-        else if !ALPHABET.contains(s_lower.chars().nth(0).unwrap()) {
+        if s_lower.len() < 2 || !ALPHABET.contains(s_lower.chars().nth(0).unwrap()) {
             Err(ParseCoordError::InvalidFormat)
         } else {
             let x: u8 = ALPHABET.find(|x| x == s_lower.chars().nth(0).unwrap()).unwrap() as u8;

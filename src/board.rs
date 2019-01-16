@@ -83,7 +83,7 @@ impl Board {
         let mut black_unions = UnionFind::new(((size + 2) * (size + 2)) as usize);
         let mut white_unions = UnionFind::new(((size + 2) * (size + 2)) as usize);
         // for each stone in the left and right columns, union together with the one above it
-        for y in 1..size+1 {
+        for y in 1..=size {
             // corresponding to the left edge at the given height: (0, y) maps to (size + 2) * y
             // this connects (0, y) and (0, y - 1)
             black_unions.union(y * (size + 2), (y - 1) * (size + 2));
@@ -92,7 +92,7 @@ impl Board {
             black_unions.union((y + 1) * (size + 2) - 1, y * (size + 2) - 1);
         }
         // for each stone in the top and bottom rows, union together with the one to the left of it
-        for x in 1..size+1 {
+        for x in 1..=size {
             // corresponding to the top edge at the given x: (x, 0) maps to x
             // this connects (x, 0) and (x - 1, 0)
             white_unions.union(x, x - 1);
@@ -116,7 +116,7 @@ impl Board {
     /// are virtual stones on the top and left edges. Basically, the size of the board is increased by
     /// 2 and each coordinate is shifted.
     fn coord_to_num(&self, coord: Coord) -> u16 {
-        (coord.y as u16 + 1) * (self.size + 2) + coord.x as u16 + 1
+        (u16::from(coord.y) + 1) * (self.size + 2) + u16::from(coord.x) + 1
     }
     /// Gets the Coordinate that maps to a given integer in this board size, reading in normal
     /// left-right top-down order. Accounts for everything being shifted down and right one to
@@ -160,11 +160,11 @@ impl Board {
     /// the coordinate is within range), modifying the board's state and returning true. Otherwise,
     /// does not modify the board state and returns false.
     pub fn place_piece(&mut self, coord: Coord, color: Color) -> bool {
-        // if out of bounds, return false and do nothing
-        if coord.x as u16 >= self.size || coord.y as u16 >= self.size {
-            false
-        } else if self.piece(coord) != HexCell::Empty {
-            // if existing piece, return false and do nothing
+        if u16::from(coord.x) >= self.size ||
+            u16::from(coord.y) >= self.size ||
+            self.piece(coord) != HexCell::Empty {
+                // if out of bounds, return false and do nothing
+                // if existing piece, return false and do nothing
             false
         } else {
             let num = self.coord_to_num(coord);
@@ -259,7 +259,7 @@ impl fmt::Display for Board {
             }
             // separate with a newline and the right number of spaces
             s.push('\n');
-            for _ in 0..y+1 {
+            for _ in 0..=y {
                 s.push(' ');
             }
         }

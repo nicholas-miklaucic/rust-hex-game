@@ -4,7 +4,10 @@ version = "0.1.0"
 authors = ["Nicholas Miklaucic <nicholas.miklaucic@gmail.com>"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
+readme = "README.md"
+categories = ["games", "data-structures"]
 
 [dependencies]
 petgraph = "0.4.13"
 colored = "1.7"
+bincode = "1.0.1"
